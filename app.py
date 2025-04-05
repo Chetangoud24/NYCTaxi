@@ -12,10 +12,11 @@ from sklearn.metrics import r2_score, mean_squared_error
 st.set_page_config(page_title="NYC Green Taxi Analysis", layout="wide")
 st.title("🚕 NYC Green Taxi Data Analysis & Prediction")
 
-# Upload CSV
-uploaded_file = st.file_uploader("Upload CSV file", type=["csv"])
+# Upload Parquet file
+uploaded_file = st.file_uploader("Upload a Parquet file", type=["parquet"])
 if uploaded_file:
-    df = pd.read_csv(uploaded_file)
+    df = pd.read_parquet(uploaded_file)
+
 
     # Drop unused column
     df.drop(columns=['ehail_fee'], inplace=True, errors='ignore')
