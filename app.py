@@ -17,7 +17,7 @@ st.set_page_config(
 # Load data function with caching
 @st.cache_data
 def load_data():
-    df = pd.read_csv('green_tripdata_2024-06.csv')
+    df = pd.read_parquet('green_tripdata_2024-06.parquet')
     
     # Convert datetime columns
     df['lpep_pickup_datetime'] = pd.to_datetime(df['lpep_pickup_datetime'])
